@@ -11,7 +11,7 @@ cursor = banco.cursor()
 #Verefica se o Banco de dados já existe
 res = os.path.exists('/Documentos/Curso Python/Python/Projeto-Gerando-Dados/consultaClientes/olt_banco.db')
  
-if res is True:
+if res is not True:
     #Cria a tabela
     cursor.execute("CREATE TABLE equipamentos (nome text, gpon text, cidade text)")
 
@@ -24,7 +24,4 @@ if res is True:
     #Salva ou atualiza o banco de dados
     banco.commit()
 else:
-    #Realiza a pesquisa do banco apresentado todos os dados
-    cursor.execute("SELECT * FROM equipamentos")
-
-    print(cursor.fetchall())
+    print("Banco de dados Já existe.")
