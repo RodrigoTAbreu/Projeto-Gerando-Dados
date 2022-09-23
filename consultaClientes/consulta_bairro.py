@@ -1,4 +1,4 @@
-#CONSULTA DO BANCO DE DADOS POR CTO
+#CONSULTA DO BANCO DE DADOS POR BAIRRO
 
 import sqlite3
 banco = sqlite3.connect('olt_banco.db')
@@ -8,7 +8,7 @@ cursor = banco.cursor()
 
 #Realiza a pesquisa do banco apresentado todos os dados
 
-bairro = input("Informe o bairro: ")
+bairro = input("Informe o bairro: ").upper()
 
 
 print('Resultado: ')

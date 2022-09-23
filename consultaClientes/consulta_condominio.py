@@ -1,4 +1,4 @@
-#CONSULTA DO BANCO DE DADOS POR CTO
+#CONSULTA DO BANCO DE DADOS POR CONDOMINIO
 
 import sqlite3
 banco = sqlite3.connect('olt_banco.db')
