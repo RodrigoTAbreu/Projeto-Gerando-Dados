@@ -8,12 +8,12 @@ cursor = banco.cursor()
 
 #Realiza a pesquisa do banco apresentado todos os dados
 
-cto = input("Informe a CTO: ").upper()
+cond = input("Informe o condomínio: ")
 
 
 print('Resultado: ')
 print('--'*40)
-cursor.execute(f"SELECT olt, pon, cto, nome, condominio FROM geral WHERE cto = '{cto}'")
+cursor.execute(f"SELECT olt, pon, cto, nome, condominio FROM geral WHERE condominio = '{cond}'")
 for row in cursor:
     print(row)
 
