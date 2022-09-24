@@ -20,7 +20,7 @@ if res is not True:
     gpon = input("GPON: ")
     cidade = input("CIDADE: ")
 
-    cursor.execute(f"INSERT INTO equipamentos VALUES('{nome}', '{gpon}','{cidade}')") 
+    cursor.execute(f"INSERT INTO equipamentos VALUES('{nome}', '{cidade}')")
     #Salva ou atualiza o banco de dados
     banco.commit()
 else:
