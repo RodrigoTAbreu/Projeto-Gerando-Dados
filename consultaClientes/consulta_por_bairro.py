@@ -1,6 +1,6 @@
 #CONSULTA DO BANCO DE DADOS POR BAIRRO
 
-def consult_bairro():
+def consulta_bairro():
     import sqlite3
     banco = sqlite3.connect('olt_banco.db')
 

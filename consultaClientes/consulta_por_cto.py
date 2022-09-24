@@ -1,7 +1,7 @@
 #CONSULTA DO BANCO DE DADOS POR CTO
 import menu_principal
 
-def consult_cto():
+def consulta_cto(cto):
     import sqlite3 #importa a lib do sql
     banco = sqlite3.connect('olt_banco.db') #variavel se conecta ao bando de dados
 
@@ -9,7 +9,7 @@ def consult_cto():
 
     #Realiza a pesquisa do banco apresentado todos os dados
 
-    cto = input("Informe a CTO: ").upper()
+    #cto = input("Informe a CTO: ").upper()
 
     print('Resultado: ')
     print('--'*40)
@@ -25,4 +25,3 @@ def consult_cto():
 
     print(cursor.fetchall())
 
-    menu_principal.principal()

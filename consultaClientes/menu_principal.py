@@ -1,12 +1,11 @@
 #Programa Principal
-import consulta_cto
-import consulta_bairro
+import consulta_por_cto
+import consulta_por_bairro
 
 def principal():
     print("-="*20)
     print(" CONSULTA DE CLIENTES - ROMPIMENTO")
     print("-="*20)
-
     print('--'*20)
     print('''Escolha a opção de consulta:
         [1] - OLT
@@ -21,9 +20,10 @@ def principal():
             print("Encerrando aplicação !!")
             break
         if escolha == 2:
-            consulta_cto.consult_cto()
+            cto = input("Informe a CTO: ").upper()
+            consulta_por_cto.consulta_cto(cto)
         if escolha == 3:
-            consulta_bairro.consult_bairro()
+            consulta_por_bairro.consulta_bairro()
 
 principal()
 
