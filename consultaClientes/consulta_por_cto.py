@@ -1,7 +1,7 @@
 #CONSULTA DO BANCO DE DADOS POR CTO
 import menu_principal
 
-def consulta_cto(cto):
+def consulta_cto():
     import sqlite3 #importa a lib do sql
     banco = sqlite3.connect('olt_banco.db') #variavel se conecta ao bando de dados
 
@@ -9,7 +9,7 @@ def consulta_cto(cto):
 
     #Realiza a pesquisa do banco apresentado todos os dados
 
-    #cto = input("Informe a CTO: ").upper()
+    cto = input("Informe a CTO: ").upper()
 
     print('Resultado: ')
     print('--'*40)
@@ -22,6 +22,6 @@ def consulta_cto(cto):
     cursor.execute(f"SELECT olt, pon, dados_cliente.CODCLIENTE, dados_cliente.CLIENTE FROM geral INNER JOIN dados_cliente on geral.cto = dados_cliente.cto WHERE geral.cto = '{cto}'")
     for row in cursor:
         print(row)
-
     print(cursor.fetchall())
+    menu_principal.principal()
 

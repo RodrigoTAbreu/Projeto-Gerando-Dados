@@ -1,6 +1,7 @@
 #Programa Principal
 import consulta_por_cto
 import consulta_por_bairro
+import consulta_por_equipamentos
 
 def principal():
     print("-="*20)
@@ -15,16 +16,24 @@ def principal():
         [5] - SAIR''')
     escolha = int(input('Digite uma das opções: '))
 
-    while escolha !=5:
+    while escolha <= 5:
         if escolha == 5:
             print("Encerrando aplicação !!")
             break
         if escolha == 2:
-            cto = input("Informe a CTO: ").upper()
-            consulta_por_cto.consulta_cto(cto)
+            consulta_por_cto.consulta_cto()
         if escolha == 3:
             consulta_por_bairro.consulta_bairro()
-
+        if escolha == 1:
+            consulta_por_equipamentos.equipamento()
+        if escolha > 5:
+            print('''Escolha a opção de consulta:
+                    [1] - OLT
+                    [2] - CTO
+                    [3] - BAIRRO
+                    [4] - CONDOMÍNIO
+                    [5] - SAIR''')
+            escolha = int(input('Digite uma das opções: '))
 principal()
 
 
