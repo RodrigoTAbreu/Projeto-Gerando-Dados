@@ -1,5 +1,4 @@
 #CONSULTA DO BANCO DE DADOS POR BAIRRO
-import menu_principal
 
 def consulta_bairro():
     import sqlite3
@@ -21,4 +20,3 @@ def consulta_bairro():
     for row in cursor:
         print(row)
     print(cursor.fetchall())
-    menu_principal.principal()

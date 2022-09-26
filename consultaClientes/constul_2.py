@@ -1,6 +1,6 @@
-#CONSULTA DO BANCO DE DADOS POR CONDOMINIO
+#CONSULTA DO BANCO DE DADOS POR CTO
 
-def consultaCond():
+def consultaCTO():
     import sqlite3
     banco = sqlite3.connect('olt_banco.db')
 
@@ -9,11 +9,17 @@ def consultaCond():
 
     #Realiza a pesquisa do banco apresentado todos os dados
 
-    cond = input("Informe o condomínio: ")
+    cod_cto = input("Informe a CTO: ").upper()
+
 
     print('Resultado: ')
     print('--'*40)
-    cursor.execute(f"SELECT olt, pon, cto, nome, condominio FROM geral WHERE condominio = '{cond}'")
+
+    cursor.execute(f"SELECT olt, pon, cto, nome, condominio, bairro FROM geral WHERE cto = '{cod_cto}'")
+
     for row in cursor:
         print(row)
     print(cursor.fetchall())
+
+
+

@@ -1,5 +1,4 @@
 #CONSULTA DO BANCO DE DADOS POR CTO
-import menu_principal
 
 def consulta_cto():
     import sqlite3 #importa a lib do sql
@@ -23,5 +22,4 @@ def consulta_cto():
     for row in cursor:
         print(row)
     print(cursor.fetchall())
-    menu_principal.principal()
 

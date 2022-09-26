@@ -1,5 +1,5 @@
 #CONSULTA DO BANCO DE DADOS POR EQUIPAMENTOS E PON
-import menu_principal
+
 def equipamento():
     import sqlite3
     banco = sqlite3.connect('olt_banco.db')
@@ -18,4 +18,3 @@ def equipamento():
     for row in cursor:
         print(row)
     print(cursor.fetchall())
-    menu_principal.principal()
