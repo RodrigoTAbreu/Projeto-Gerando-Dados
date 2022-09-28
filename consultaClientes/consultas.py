@@ -88,3 +88,4 @@ def consultaCond():
     for row in cursor:
         print(row)
     print(cursor.fetchall())
+
