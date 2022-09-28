@@ -1,9 +1,5 @@
 #Programa Principal
-import consulta_por_bairro
-import consulta_por_equipamentos
-import consulta_por_condominio
-import constul_2
-
+import consultas
 
 def principal():
     print( "-=" * 20 )
@@ -19,13 +15,13 @@ def principal():
     escolha = int( input( 'Digite uma das opções: ' ) )
 
     if escolha == 1:
-        consulta_por_equipamentos.equipamento()
+        consultas.equipamento()
     elif escolha == 2:
-        constul_2.consultaCTO()
+        consultas.consulta_cto()
     elif escolha == 3:
-        consulta_por_bairro.consulta_bairro()
+        consultas.consulta_bairro()
     elif escolha == 4:
-        consulta_por_condominio.consultaCond()
+        consultas.consultaCond()
     elif escolha == 5:
         print("Encerrando aplicação.")
     elif escolha > 5:
