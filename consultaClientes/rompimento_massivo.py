@@ -2,6 +2,8 @@ from menu import *
 from consultas import *
 from time import sleep
 
+
+
 while True:
     resposta = menu(['OLT', 'CTO', 'BAIRRO', 'CONDOMÍNIO', 'SAIR'])
     if resposta == 1:
