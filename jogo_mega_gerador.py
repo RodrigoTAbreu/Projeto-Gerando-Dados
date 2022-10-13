@@ -23,6 +23,7 @@ while count < 6:
 
     if busca in jogo :
         jogo.remove(busca)
+        count -= 1
     count += 1
 
 print(f"Seu jogo é de {len(jogo)} números.")
@@ -40,4 +41,4 @@ plt.ylabel("Valores(y)", fontsize = 14)
 #Define o tamanho dos rótulos das marcações
 plt.tick_params(axis='both', labelsize=14)
 
-plt.show()
+#plt.show()
