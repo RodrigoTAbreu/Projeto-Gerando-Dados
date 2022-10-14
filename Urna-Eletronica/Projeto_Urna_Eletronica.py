@@ -1,6 +1,7 @@
-print("**"*12)
-print("\tURNA ELETRONICA")
-print("**"*12)
+import bco_dados
+import texto_tela
+
+texto_tela.cabecalho()
 
 try:
     titulo = int(input("Informe seu Titulo: "))
@@ -9,14 +10,11 @@ except ValueError:
 
     print("Informe apenas valores NUMÉRICOS.")
 
-print("**"*12)
-print("\tCANDIDATOS")
-print("**"*12)
+texto_tela.consult_cadidatos()
 
-print("[22] - Bolsonaro")
-print("[13] - Lula")
-voto = int(input("Digite o Número do seu candidato: "))
+bco_dados.votos()
 
+"""
 lista_22 = []
 lista_13 = []
 
@@ -34,3 +32,4 @@ print("\tTotal de Votos até o momento.")
 print("**"*22)
 print(f"Candidato Bolsonaro tem {len(lista_22)} votos.")
 print(f"Candidato Lula tem {len(lista_13)} votos.")
+"""
