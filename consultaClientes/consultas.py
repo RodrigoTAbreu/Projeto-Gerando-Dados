@@ -89,3 +89,25 @@ def consultaCond():
         print(row)
     print(cursor.fetchall())
 
+def consulta_cliente():
+    import sqlite3 #importa a lib do sql
+    banco = sqlite3.connect('olt_banco.db') #variavel se conecta ao bando de dados
+
+    cursor = banco.cursor()
+
+    #Realiza a pesquisa do banco apresentado todos os dados
+
+    cliente = input("Informe o C do Cliente: ").upper()
+
+    print('Resultado: ')
+    print('--'*40)
+    #Realiza a consulta com base na tabela GERAL apresentadno os dados somente desta tabela.
+    #cursor.execute(f"SELECT olt, pon, cto, nome, condominio FROM geral WHERE cto = '{cto}'")
+    #for row in cursor:
+    #    print(row)
+
+    #Realiza a pesquisa vinculando a consulta com duas tabelas distintas, com base na CTO que é campo em comum nas duas tabelas
+    cursor.execute(f"SELECT olt, pon, CODIGO, CIRCUITO, NOME FROM geral WHERE CODIGO='{cliente}'")
+    for row in cursor:
+        print(row)
+    print(cursor.fetchall())

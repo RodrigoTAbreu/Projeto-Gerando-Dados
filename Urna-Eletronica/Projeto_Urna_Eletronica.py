@@ -1,17 +1,14 @@
+from lib2to3.pgen2.token import BACKQUOTE
+import sqlite3
 import bco_dados
 import texto_tela
+import os.path
 
-texto_tela.cabecalho()
-
-try:
-    titulo = int(input("Informe seu Titulo: "))
-
-except ValueError:
-
-    print("Informe apenas valores NUMÉRICOS.")
 
 texto_tela.consult_cadidatos()
 
+bco_dados.cadastro_candidatos()
+bco_dados.cria_tabela_titulo()
 bco_dados.votos()
 
 """

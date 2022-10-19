@@ -5,7 +5,7 @@ from time import sleep
 
 
 while True:
-    resposta = menu(['OLT', 'CTO', 'BAIRRO', 'CONDOMÍNIO', 'SAIR'])
+    resposta = menu(['OLT', 'CTO', 'BAIRRO', 'CONDOMÍNIO', 'CLIENTE', 'SAIR'])
     if resposta == 1:
         print(linha())
         equipamento()
@@ -23,11 +23,15 @@ while True:
         consultaCond()
         sleep(1)
     elif resposta == 5:
+        print(linha())
+        consulta_cliente()
+        sleep(1)
+    elif resposta == 6:
         print('Encerrando Consultas !!!')
         print(linha())
         sleep(2)
         break
     else:
-        print('ERRO! Digite uma opção válida!')
+        print('[ERRO]! Digite uma opção válida!')
         sleep(2)
 

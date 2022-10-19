@@ -32,7 +32,7 @@ def cadastro_candidatos():
     while resp == 's':
         candidato = str(input("Informe o Nome do Candidato(a): "))
         num = int(input("Insira o número do Candidato(a): "))
-        cur.execute(f'INSERT INTO Candidatos (nome, numero) VALUES(?,?)',(f'{candidato}',f'{num}'))
+        cur.execute(f'INSERT INTO Candidatos (nome, numero) VALUES (?,?)', (f'{candidato}', {num}))
         conn.commit()
         resp = input("Continua o cadastro? ")
 
@@ -51,7 +51,8 @@ def votos():
     print('Digite o número do candidato')
     mostra_candidatos()
     voto = int(input("Digite um dos números acima: "))
-    cur.execute('INSERT INTO Votos VALUES (?)',f'{voto}')
+    
+    cur.execute(f'INSERT INTO Votos (numero) VALUES ({voto})')
     
     
     print('Voto Cadastrado com sucesso.')
@@ -66,6 +67,5 @@ def resultado():
         print(row)
 
 
-mostra_candidatos()
 votos()
 conn.close()
