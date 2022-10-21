@@ -20,14 +20,15 @@ def cabecalho(txt):
     print(linha())
 
 def menu(lista):
-    cabecalho('ROMPIMENTO MASSIVO - CONSULTAS')
+    cabecalho('CONSULTAS')
     c = 1
     for item in lista:
-        print(f'{c} - {item}')
+        print(f'{c:2} - {item}')
         c += 1
     print(linha())
     opc = leiaInt('Opção:')
     return opc
+
 
 
 cabecalho('Consulta de Rompimento')
