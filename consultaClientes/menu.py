@@ -20,7 +20,7 @@ def cabecalho(txt):
     print(linha())
 
 def menu(lista):
-    cabecalho('CONSULTAS')
+    cabecalho('>> MENU <<')
     c = 1
     for item in lista:
         print(f'{c:2} - {item}')
@@ -31,5 +31,5 @@ def menu(lista):
 
 
 
-cabecalho('Consulta de Rompimento')
+cabecalho('-- CONSULTAS NIP V1.0 --')
 

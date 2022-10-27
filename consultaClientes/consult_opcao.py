@@ -1,6 +1,7 @@
-
+from time import sleep
 import consultas_nip
 from menu import *
+from sys import exit
 #CONSULTA DO BANCO DE DADOS POR EQUIPAMENTOS E PON
 
 def consulta_por_equipamento():
@@ -18,7 +19,7 @@ def consulta_por_equipamento():
     print('--'*40)
     cursor.execute(f"SELECT olt, pon, cto, nome FROM geral WHERE olt = '{opc}' AND pon = 'GPON {gpon}'")
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
     
     
@@ -44,12 +45,12 @@ def consulta_cto():
     #Realiza a pesquisa vinculando a consulta com duas tabelas distintas, com base na CTO que é campo em comum nas duas tabelas
     cursor.execute(f"SELECT olt, pon, dados_cliente.CODCLIENTE, dados_cliente.CLIENTE FROM geral INNER JOIN dados_cliente on geral.cto = dados_cliente.cto WHERE geral.cto = '{cto}'")
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
 
     cursor.execute(f"SELECT olt, pon, cto, NOME, CONDOMINIO, ENDEREÇO, bairro FROM geral WHERE CTO='{cto}'")
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
 
 #CONSULTA DO BANCO DE DADOS POR BAIRRO
@@ -60,19 +61,17 @@ def consulta_bairro():
 
     cursor = banco.cursor()
     #consulta = input("Informe o dado a ser consultado: ")
-
     #Realiza a pesquisa do banco apresentado todos os dados
 
-    bairro = input("Informe o bairro: ").upper()
-
+    bairro = input("Informe o bairro:").upper()
 
     print('Resultado: ')
     print('--'*40)
 
-    cursor.execute(f"SELECT olt, pon, cto, nome, condominio, bairro FROM geral WHERE bairro = '{bairro}'")
+    cursor.execute(f"SELECT olt, pon, cto, nome, condominio, bairro FROM geral WHERE bairro='{bairro}'")
 
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
 
 
@@ -93,10 +92,10 @@ def consultaCond():
     print('--'*40)
     cursor.execute(f"SELECT olt, pon, codigo, circuito, nome FROM geral WHERE condominio='{cond}'")
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
     
-
+#CONSULTA POR CÓDIGO DE CLIENTE
 def consulta_cliente():
     import sqlite3 #importa a lib do sql
     banco = sqlite3.connect('olt_banco.db') #variavel se conecta ao bando de dados
@@ -105,7 +104,7 @@ def consulta_cliente():
 
     #Realiza a pesquisa do banco apresentado todos os dados
 
-    cliente = input("Informe o C do Cliente: ").upper()
+    cliente = input("Informe o C do Cliente:").upper()
 
     print('Resultado: ')
     print('--'*40)
@@ -115,9 +114,14 @@ def consulta_cliente():
     #    print(row)
 
     #Realiza a pesquisa vinculando a consulta com duas tabelas distintas, com base na CTO que é campo em comum nas duas tabelas
+    cursor.execute(f"SELECT cto, gpon, cliente  FROM dados_cliente WHERE CODCLIENTE='{cliente}'")
+    for row in cursor:
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
+    print(cursor.fetchall())
+    
     cursor.execute(f"SELECT olt, pon, CODIGO, CIRCUITO, NOME FROM geral WHERE CODIGO='{cliente}'")
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
     
     
@@ -137,7 +141,7 @@ def consulta_corporativo():
     print('--'*40)
     cursor.execute(f"SELECT olt, pon, cto, nome, condominio FROM geral WHERE TIPO = '{corp}'")
     for row in cursor:
-        print(row)
+        print(f'{row}'.replace(',','|').replace('(','').replace(')','').replace("'",""))
     print(cursor.fetchall())
     
 # Lista os Equipamentos com base em uma lista de equipamentos  
@@ -233,8 +237,7 @@ def lista_do_equipamento():
             print(linha())
             exit()
            # principal()
-            break
         else:
             print('[ERRO]! Digite uma opção válida!')
-            sleep(2)
+            sleep(1)
 

@@ -2,9 +2,10 @@ from menu import *
 from equipamentos import *
 from consult_opcao import *
 from time import sleep
+from sys import exit
 
 while True:
-    resposta = menu(['OLT', 'CTO', 'BAIRRO', 'CONDOMÍNIO', 'SAIR'])
+    resposta = menu(['OLT', 'CTO', 'BAIRRO', 'CONDOMÍNIO', 'CLIENTE','SAIR'])
     if resposta == 1:
         print(linha())
         consulta_por_equipamento()
@@ -21,17 +22,17 @@ while True:
         print(linha())
         consultaCond()
         sleep(1)
-    #elif resposta == 5:
-    #    print(linha())
-    #    consulta_corporativo()
-    #    sleep(1)
     elif resposta == 5:
+        print(linha())
+        consulta_cliente()
+        sleep(1)
+    elif resposta == 6:
         print('-- Encerrando Aplicação -- ')
         print(linha())
-        sleep(2)
+        sleep(1)
         exit()
-        break
+
     else:
         print('[ERRO]! Digite uma opção válida!')
-        sleep(2)
+        sleep(1)
 
